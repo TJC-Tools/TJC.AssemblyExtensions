@@ -61,7 +61,26 @@ jobs:
 
       - name: Get Next Version [${{ steps.getLastVersion.outputs.result }}]
         id: getNextVersion
-        if: ${{ steps.getChanges.outputs.any_modified != 'false' }}
+        if: ${{ steps.getChanges.outputs.any_modified != 'false' && steps.getPR.outputs.pr_found == 'false' }}
+        uses: actions/github-script@v7.0.1
+        with:
+          result-encoding: string
+          script: |
+            var latestTag = "${{ steps.getLastVersion.outputs.result }}"
+            if (latestTag == "")
+              return "v0.1.0"
+            var ver = latestTag.replace("v","").split("-")[0]
+            console.log('Last Version:', "v" + ver)
+            var major = ver.split(".")[0]
+            var minor = ver.split(".")[1]
+            var patch = parseInt(ver.split(".")[2]) + 1
+            var next = "v" + major + "." + minor + "." + patch
+            console.log('Next Version:', next)
+            return next
+
+      - name: Get Next Version [${{ steps.getLastVersion.outputs.result }}]
+        id: getNextVersion
+        if: ${{ steps.getChanges.outputs.any_modified != 'false' && steps.getPR.outputs.pr_found == 'true' }}
         uses: actions/github-script@v7.0.1
         with:
           result-encoding: string
