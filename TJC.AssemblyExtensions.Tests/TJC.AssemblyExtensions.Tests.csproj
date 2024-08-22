@@ -7,6 +7,7 @@
 	<IsPackable>false</IsPackable>
 	<IsTestProject>true</IsTestProject>
 	<Copyright>Test Copyright © 2024</Copyright>
+	<Description>Test Description</Description>
   </PropertyGroup>
 
   <ItemGroup>

@@ -20,6 +20,19 @@ namespace TJC.AssemblyExtensions.Tests.Attributes
         }
 
         [TestMethod]
+        public void AssemblyDescription()
+        {
+            // Arrange
+            var assembly = Assembly.GetExecutingAssembly();
+
+            // Act
+            var result = assembly.GetDescription();
+
+            // Assert
+            Assert.AreEqual("Test Description", result);
+        }
+
+        [TestMethod]
         public void AssemblyCopyright_DoNotReplaceSymbol()
         {
             // Arrange
