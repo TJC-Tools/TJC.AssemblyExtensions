@@ -119,8 +119,8 @@ jobs:
           git tag ${{ steps.getNextVersion1.outputs.result }}${{ steps.getNextVersion2.outputs.result }}
           git push origin tag ${{ steps.getNextVersion1.outputs.result }}${{ steps.getNextVersion2.outputs.result }}
 
-      - name: ${{ (steps.getChanges.outputs.any_modified == 'false') && 'Skipped Incrementing Version' || format('Incremented Version [{0}]', steps.getNextVersion1.outputs.result + steps.getNextVersion2.outputs.result) }}
+      - name: ${{ (steps.getChanges.outputs.any_modified == 'false') && 'Skipped Incrementing Version' || format('Incremented Version [{0}{1}]', steps.getNextVersion1.outputs.result, steps.getNextVersion2.outputs.result) }}
         if: success()
         uses: ./.github/actions/tools/annotation/notice
         with:
-          message: ${{ (steps.getChanges.outputs.any_modified == 'false') && 'Skipped Incrementing Version' || format('Incremented Version [{0}]', steps.getNextVersion1.outputs.result + steps.getNextVersion2.outputs.result) }}
+          message: ${{ (steps.getChanges.outputs.any_modified == 'false') && 'Skipped Incrementing Version' || format('Incremented Version [{0}{1}]', steps.getNextVersion1.outputs.result, steps.getNextVersion2.outputs.result) }}
