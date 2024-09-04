@@ -87,7 +87,7 @@
     <AppendNewLineAndFile File1="..\LICENSE" File2="..\THIRD-PARTY-LICENSES" />
   </Target>
   <!-- POST-BUILD -->
-  <Target Name="CustomCleanupBuild" AfterTargets="Build">
+  <Target Name="CustomCleanupBuild" AfterTargets="CoreBuild">
     <Message Text="=== CUSTOM CLEANUP ===" Importance="high" />
     <CallTarget Targets="RestoreLicenseFile" />
   </Target>
