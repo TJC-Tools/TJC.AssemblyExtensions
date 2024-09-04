@@ -1,28 +1,40 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-	<TargetFramework>net8.0</TargetFramework>
-	<ImplicitUsings>enable</ImplicitUsings>
-	<Nullable>enable</Nullable>
-	<IsPackable>false</IsPackable>
-	<IsTestProject>true</IsTestProject>
-	<Copyright>Test Copyright © 2024</Copyright>
-	<Description>Test Description</Description>
-  </PropertyGroup>
-
-  <ItemGroup>
-	<PackageReference Include="coverlet.collector" Version="6.0.2" />
-	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
-	<PackageReference Include="MSTest.TestAdapter" Version="3.5.2" />
-	<PackageReference Include="MSTest.TestFramework" Version="3.5.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-	<ProjectReference Include="..\TJC.AssemblyExtensions\TJC.AssemblyExtensions.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-	<Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
-  </ItemGroup>
-
+	<!-- DETIALS -->
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+		<Copyright>Test Copyright © 2024</Copyright>
+		<Description>Test Description</Description>
+		<Authors>Tyler Carrol</Authors>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+	</PropertyGroup>
+	<!-- INCLUDED FILES -->
+	<ItemGroup>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<EmbeddedResource Include="..\LICENSE" />
+	</ItemGroup>
+	<!-- DEPENDENCIES -->
+	<ItemGroup>
+		<PackageReference Include="coverlet.collector" Version="6.0.2" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
+		<PackageReference Include="MSTest.TestAdapter" Version="3.5.2" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.5.2" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\TJC.AssemblyExtensions\TJC.AssemblyExtensions.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
+	</ItemGroup>
 </Project>
