@@ -6,7 +6,10 @@
 		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
 		<IsTestProject>true</IsTestProject>
-		<Copyright>Test Copyright © 2024</Copyright>
+		<Copyright>
+			Test Copyright © 2024
+			With Multiple Lines
+		</Copyright>
 		<Description>Test Description</Description>
 		<Authors>Tyler Carrol</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
