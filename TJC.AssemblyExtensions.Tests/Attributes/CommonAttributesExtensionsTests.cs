@@ -42,7 +42,7 @@ namespace TJC.AssemblyExtensions.Tests.Attributes
             var result = assembly.GetCopyright(replaceCopyrightSymbolWithC: false);
 
             // Assert
-            Assert.AreEqual("Test Copyright © 2024", result);
+            Assert.AreEqual($"Test Copyright © 2024{Environment.NewLine}With Multiple Lines", result);
         }
 
         [TestMethod]
@@ -55,7 +55,7 @@ namespace TJC.AssemblyExtensions.Tests.Attributes
             var result = assembly.GetCopyright(replaceCopyrightSymbolWithC: true);
 
             // Assert
-            Assert.AreEqual("Test Copyright (C) 2024", result);
+            Assert.AreEqual($"Test Copyright (C) 2024{Environment.NewLine}With Multiple Lines", result);
         }
 
         const string LICENSE_CONTENTS = "Copyright (c) 2024 Tyler Carrol\r\n\r\n" +

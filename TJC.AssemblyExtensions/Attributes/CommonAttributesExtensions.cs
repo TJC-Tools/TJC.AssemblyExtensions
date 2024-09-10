@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using TJC.StringExtensions.Lines;
 
 namespace TJC.AssemblyExtensions.Attributes;
 
@@ -14,9 +15,19 @@ public static class CommonAttributesExtensions
     {
         var copyright = assembly.GetAssemblyAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? string.Empty;
 
+        // (Optional) Replace the copyright symbol with (C)
         if (replaceCopyrightSymbolWithC)
             copyright = copyright.Replace("©", "(C)");
-        return copyright;
+
+        // Normalize line endings
+        var result = string.Empty;
+        foreach (var line in copyright.SplitNewLine())
+            result += $"{line.Trim()}{Environment.NewLine}";
+
+        // Trim the trailing newline
+        result = result.Trim();
+
+        return result;
     }
 
     /// <summary>
