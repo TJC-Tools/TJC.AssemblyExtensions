@@ -1,4 +1,6 @@
-[![NuGet Version and Downloads count](https://buildstats.info/nuget/TJC.AssemblyExtensions)](https://www.nuget.org/packages/TJC.AssemblyExtensions)
+![GitHub Tag](https://img.shields.io/github/v/tag/TJC-Tools/TJC.AssemblyExtensions) ![NuGet Version](https://img.shields.io/nuget/v/TJC.AssemblyExtensions)
+
+![NuGet Downloads](https://img.shields.io/nuget/dt/TJC.AssemblyExtensions) ![Size](https://img.shields.io/github/repo-size/TJC-Tools/TJC.AssemblyExtensions) ![License](https://img.shields.io/github/license/TJC-Tools/TJC.AssemblyExtensions.svg)
 
 ## T? [Assembly](https://learn.microsoft.com/en-us/dotnet/api/system.reflection.assembly?view=net-8.0).[GetAssemblyAttribute](./TJC.AssemblyExtensions/Attributes/AttributeExtensions.cs)()
 - Used to get attributes of an assembly.
