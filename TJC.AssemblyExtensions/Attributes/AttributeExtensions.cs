@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace TJC.AssemblyExtensions.Attributes;
+﻿namespace TJC.AssemblyExtensions.Attributes;
 
 public static class AttributeExtensions
 {
