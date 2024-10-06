@@ -1,6 +1,6 @@
 ﻿namespace TJC.AssemblyExtensions.Attributes;
 
-public static partial class CommonAttributeExtensions
+public static class ThirdPartyLicenseExtensions
 {
     /// <summary>
     /// Retrieves the contents of the THIRD-PARTY-LICENSES file embedded in the assembly.
