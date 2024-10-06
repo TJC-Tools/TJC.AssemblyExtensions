@@ -1,6 +1,6 @@
 ﻿namespace TJC.AssemblyExtensions.Attributes;
 
-public static partial class CommonAttributeExtensions
+public static class ChangelogExtensions
 {
     /// <summary>
     /// Retrieves the contents of the CHANGELOG.md file embedded in the assembly.

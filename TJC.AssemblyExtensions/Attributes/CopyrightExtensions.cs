@@ -2,7 +2,7 @@
 
 namespace TJC.AssemblyExtensions.Attributes;
 
-public static partial class CommonAttributeExtensions
+public static class CopyrightExtensions
 {
     public static string GetCopyright(this Assembly assembly, bool replaceCopyrightSymbolWithC = false)
     {
