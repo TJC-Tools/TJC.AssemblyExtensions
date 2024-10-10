@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2024-10-10
+
 ### Added
 
 - Changelog Automation
@@ -28,3 +30,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add extension for third party licenses
+
+[Unreleased]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.5.0...HEAD
+
+[0.5.0]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.4.1...v0.5.0
+
+[0.4.1]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.4.0...v0.4.1
+
+[0.4.0]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.3.0...v0.4.0
+
+[0.3.0]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/releases/tag/v0.3.0
