@@ -12,7 +12,9 @@ public static partial class ChangelogExtensions
     /// <param name="assembly"></param>
     /// <returns></returns>
     public static string GetChangelog(this Assembly assembly,
-        bool includeHeader = false, bool includeUnreleasedSection = false, bool includePaths = false)
+                                      bool includeHeader = false,
+                                      bool includeUnreleasedSection = false,
+                                      bool includePaths = false)
     {
         // Read the embedded resource
         using var stream = assembly.GetManifestResourceStream($"{assembly.GetName().Name}.CHANGELOG.md");
