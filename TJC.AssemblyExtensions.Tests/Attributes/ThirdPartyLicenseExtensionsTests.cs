@@ -16,7 +16,8 @@ public class ThirdPartyLicenseExtensionsTests
 
         // Act
         var contents = assembly.GetThirdPartyLicenses();
-        var result   = contents.StartsWith(ThirdPartyLicenseStart);
+        var result = contents.StartsWith(ThirdPartyLicenseStart)
+                    || contents.StartsWith(ThirdPartyLicenseStart.Replace("\r", string.Empty));
 
         // Assert
         Assert.IsTrue(result);
