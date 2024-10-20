@@ -2,6 +2,8 @@
 
 [![NuGet Downloads](https://img.shields.io/nuget/dt/TJC.AssemblyExtensions)](https://www.nuget.org/packages/TJC.AssemblyExtensions) ![Size](https://img.shields.io/github/repo-size/TJC-Tools/TJC.AssemblyExtensions) [![License](https://img.shields.io/github/license/TJC-Tools/TJC.AssemblyExtensions.svg)](LICENSE)
 
+[![codecov](https://codecov.io/gh/TJC-Tools/TJC.AssemblyExtensions/graph/badge.svg?token=5YBPHU66QE)](https://codecov.io/gh/TJC-Tools/TJC.AssemblyExtensions)
+
 ## T? [Assembly](https://learn.microsoft.com/en-us/dotnet/api/system.reflection.assembly?view=net-8.0).[GetAssemblyAttribute](./TJC.AssemblyExtensions/Attributes/AttributeExtensions.cs)()
 - Used to get attributes of an assembly.
 
