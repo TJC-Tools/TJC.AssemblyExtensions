@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2024-10-20
+
 ### Added
 
 - Codecov reporting
@@ -45,7 +47,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add extension for third party licenses
 
-[Unreleased]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.6.2...HEAD
+[Unreleased]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.7.0...HEAD
+
+[0.7.0]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.6.2...v0.7.0
 
 [0.6.2]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.6.1...v0.6.2
 
