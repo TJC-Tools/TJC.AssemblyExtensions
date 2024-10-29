@@ -13,7 +13,7 @@ public class CopyrightExtensionsTests
         var result = assembly.GetCopyright(replaceCopyrightSymbolWithC: false);
 
         // Assert
-        Assert.AreEqual($"Test Copyright � 2024{Environment.NewLine}With Multiple Lines", result);
+        Assert.AreEqual($"Test Copyright © 2024{Environment.NewLine}With Multiple Lines", result);
     }
 
     [TestMethod]
