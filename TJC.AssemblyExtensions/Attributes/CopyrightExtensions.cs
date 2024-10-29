@@ -4,9 +4,13 @@ namespace TJC.AssemblyExtensions.Attributes;
 
 public static class CopyrightExtensions
 {
-    public static string GetCopyright(this Assembly assembly, bool replaceCopyrightSymbolWithC = false)
+    public static string GetCopyright(
+        this Assembly assembly,
+        bool replaceCopyrightSymbolWithC = false
+    )
     {
-        var copyright = assembly.GetAssemblyAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? string.Empty;
+        var copyright =
+            assembly.GetAssemblyAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? string.Empty;
 
         // (Optional) Replace the copyright symbol with (C)
         if (replaceCopyrightSymbolWithC)

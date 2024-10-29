@@ -10,7 +10,9 @@ public static class ThirdPartyLicenseExtensions
     /// <returns></returns>
     public static string GetThirdPartyLicenses(this Assembly assembly)
     {
-        using var stream = assembly.GetManifestResourceStream($"{assembly.GetName().Name}.THIRD-PARTY-LICENSES");
+        using var stream = assembly.GetManifestResourceStream(
+            $"{assembly.GetName().Name}.THIRD-PARTY-LICENSES"
+        );
         if (stream == null)
             return string.Empty;
         using var reader = new StreamReader(stream);
