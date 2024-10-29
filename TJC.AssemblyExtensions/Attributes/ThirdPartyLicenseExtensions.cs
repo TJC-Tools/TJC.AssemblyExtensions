@@ -1,5 +1,8 @@
 ﻿namespace TJC.AssemblyExtensions.Attributes;
 
+/// <summary>
+/// Extensions for the THIRD-PARTY-LICENSES file.
+/// </summary>
 public static class ThirdPartyLicenseExtensions
 {
     /// <summary>

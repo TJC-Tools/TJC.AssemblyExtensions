@@ -3,6 +3,9 @@ using TJC.StringExtensions.Lines;
 
 namespace TJC.AssemblyExtensions.Attributes;
 
+/// <summary>
+/// Extensions for the CHANGELOG.md file embedded in the assembly.
+/// </summary>
 public static partial class ChangelogExtensions
 {
     /// <summary>
@@ -10,6 +13,9 @@ public static partial class ChangelogExtensions
     /// <para>Embed the license file like so: <![CDATA[<EmbeddedResource Include="..\CHANGELOG.md"/>]]></para>
     /// </summary>
     /// <param name="assembly"></param>
+    /// <param name="includeHeader"></param>
+    /// <param name="includeUnreleasedSection"></param>
+    /// <param name="includePaths"></param>
     /// <returns></returns>
     public static string GetChangelog(
         this Assembly assembly,
