@@ -5,11 +5,12 @@ public class ChangelogExtensionsTests
 {
     private const string ChangelogStart =
         "# Changelog\r\n\r\n"
-      + "All notable changes to this project will be documented in this file.\r\n\r\n"
-      + "The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),\r\n"
-      + "and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).";
+        + "All notable changes to this project will be documented in this file.\r\n\r\n"
+        + "The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),\r\n"
+        + "and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).";
 
-    private const string ChangelogPath = "https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/";
+    private const string ChangelogPath =
+        "https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/";
 
     [TestMethod]
     public void AssemblyChangelogStart()
@@ -19,7 +20,8 @@ public class ChangelogExtensionsTests
 
         // Act
         var contents = assembly.GetChangelog(includeHeader: true);
-        var result = contents.StartsWith(ChangelogStart)
+        var result =
+            contents.StartsWith(ChangelogStart)
             || contents.StartsWith(ChangelogStart.Replace("\r", string.Empty));
 
         // Assert
