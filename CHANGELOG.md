@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2024-11-05
+
 ## [0.7.1] - 2024-10-26
 
 ### Added
@@ -53,7 +55,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add extension for third party licenses
 
-[Unreleased]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.7.1...HEAD
+[Unreleased]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.8.0...HEAD
+
+[0.8.0]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.7.1...v0.8.0
 
 [0.7.1]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.7.0...v0.7.1
 
