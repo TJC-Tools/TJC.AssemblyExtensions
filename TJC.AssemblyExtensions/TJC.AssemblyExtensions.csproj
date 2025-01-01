@@ -51,7 +51,7 @@
     </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="TJC.StringExtensions" Version="0.6.3" />
+    <PackageReference Include="TJC.StringExtensions" Version="0.6.5" />
   </ItemGroup>
   <!-- TASKS -->
   <UsingTask TaskName="ReadFileContent" TaskFactory="RoslynCodeTaskFactory" AssemblyName="Microsoft.Build.Tasks.Core">
