@@ -8,11 +8,11 @@
     <Description>Extensions for the Assembly</Description>
     <Authors>Tyler Carrol</Authors>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>  
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/../CHANGELOG.md"))</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/TJC-Tools/TJC.AssemblyExtensions</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>  
+  </PropertyGroup>
   <!-- INCLUDED FILES -->
   <ItemGroup>
     <None Remove="Nuget.config" />
@@ -27,21 +27,21 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-	<None Include="..\CHANGELOG.md">
-	  <Pack>True</Pack>
-	  <PackagePath>\</PackagePath>
-	</None>
-	<EmbeddedResource Include="..\CHANGELOG.md" />
+    <None Include="..\CHANGELOG.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <EmbeddedResource Include="..\CHANGELOG.md" />
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-	<EmbeddedResource Include="..\LICENSE" />
-	<None Include="..\THIRD-PARTY-LICENSES">
-		<Pack>True</Pack>
-		<PackagePath>\</PackagePath>
-	</None>
-	<EmbeddedResource Include="..\THIRD-PARTY-LICENSES" />
+    <EmbeddedResource Include="..\LICENSE" />
+    <None Include="..\THIRD-PARTY-LICENSES">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <EmbeddedResource Include="..\THIRD-PARTY-LICENSES" />
   </ItemGroup>
   <!-- DEPENDENCIES -->
   <!-- TESTS -->
@@ -54,7 +54,11 @@
     <PackageReference Include="TJC.StringExtensions" Version="0.6.5" />
   </ItemGroup>
   <!-- TASKS -->
-  <UsingTask TaskName="ReadFileContent" TaskFactory="RoslynCodeTaskFactory" AssemblyName="Microsoft.Build.Tasks.Core">
+  <UsingTask
+    TaskName="ReadFileContent"
+    TaskFactory="RoslynCodeTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.Core"
+  >
     <ParameterGroup>
       <FilePath ParameterType="System.String" Required="true" />
       <Content Output="true" ParameterType="System.String" />
@@ -68,7 +72,11 @@
       </Code>
     </Task>
   </UsingTask>
-  <UsingTask TaskName="AppendNewLineAndFile" TaskFactory="RoslynCodeTaskFactory" AssemblyName="Microsoft.Build.Tasks.Core">
+  <UsingTask
+    TaskName="AppendNewLineAndFile"
+    TaskFactory="RoslynCodeTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.Core"
+  >
     <ParameterGroup>
       <File1 ParameterType="System.String" Required="true" />
       <File2 ParameterType="System.String" Required="true" />
@@ -87,7 +95,7 @@
         ]]>
       </Code>
     </Task>
-  </UsingTask>	
+  </UsingTask>
   <!-- PRE-PACK -->
   <Target Name="CustomSetup" BeforeTargets="_IntermediatePack">
     <Message Text="=== CUSTOM SETUP ===" Importance="high" />
@@ -109,6 +117,11 @@
   <!-- Cleanup License File -->
   <Target Name="RestoreLicenseFile">
     <Message Text="Restore License File Contents" Importance="high" />
-    <WriteLinesToFile File="..\LICENSE" Lines="$(OriginalLicenseLines)" Overwrite="true" Encoding="UTF-8" />
+    <WriteLinesToFile
+      File="..\LICENSE"
+      Lines="$(OriginalLicenseLines)"
+      Overwrite="true"
+      Encoding="UTF-8"
+    />
   </Target>
 </Project>
