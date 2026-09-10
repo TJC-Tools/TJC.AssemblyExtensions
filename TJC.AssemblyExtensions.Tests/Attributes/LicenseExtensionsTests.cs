@@ -29,4 +29,12 @@ public class LicenseExtensionsTests
         // Assert
         Assert.IsTrue(result);
     }
+
+    [TestMethod]
+    public void AssemblyLicense_WhenResourceIsMissing_ReturnsEmptyString()
+    {
+        var result = typeof(object).Assembly.GetLicense();
+
+        Assert.AreEqual(string.Empty, result);
+    }
 }

@@ -23,4 +23,12 @@ public class ThirdPartyLicenseExtensionsTests
         // Assert
         Assert.IsTrue(result);
     }
+
+    [TestMethod]
+    public void AssemblyThirdPartyLicenses_WhenResourceIsMissing_ReturnsEmptyString()
+    {
+        var result = typeof(object).Assembly.GetThirdPartyLicenses();
+
+        Assert.AreEqual(string.Empty, result);
+    }
 }

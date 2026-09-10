@@ -55,4 +55,39 @@ public class ChangelogExtensionsTests
         // Assert
         Assert.IsFalse(result);
     }
+
+    [TestMethod]
+    public void AssemblyChangelog_WhenResourceIsMissing_ReturnsEmptyString()
+    {
+        var result = typeof(object).Assembly.GetChangelog();
+
+        Assert.AreEqual(string.Empty, result);
+    }
+
+    [TestMethod]
+    public void RemoveHeader_WhenMarkerIsMissing_ReturnsOriginalText()
+    {
+        var method = typeof(ChangelogExtensions).GetMethod(
+            "RemoveHeader",
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static
+        );
+
+        var result = method!.Invoke(null, ["plain text"]);
+
+        Assert.AreEqual("plain text", result);
+    }
+
+    [TestMethod]
+    public void MovePathsToHeaders_WhenHeaderHasNoPath_PreservesHeader()
+    {
+        var method = typeof(ChangelogExtensions).GetMethod(
+            "MovePathsToHeaders",
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static
+        );
+
+        var result = method!.Invoke(null, ["## [1.0.0]\r\nplain text"]);
+
+        StringAssert.Contains((string)result!, "## [1.0.0]");
+        StringAssert.Contains((string)result!, "plain text");
+    }
 }

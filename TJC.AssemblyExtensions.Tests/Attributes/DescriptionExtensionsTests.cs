@@ -15,4 +15,17 @@ public class DescriptionExtensionsTests
         // Assert
         Assert.AreEqual("Test Description", result);
     }
+
+    [TestMethod]
+    public void AssemblyDescription_WhenAttributeIsMissing_ReturnsEmptyString()
+    {
+        var assembly = System.Reflection.Emit.AssemblyBuilder.DefineDynamicAssembly(
+            new AssemblyName("DescriptionWithoutAttribute"),
+            System.Reflection.Emit.AssemblyBuilderAccess.Run
+        );
+
+        var result = assembly.GetDescription();
+
+        Assert.AreEqual(string.Empty, result);
+    }
 }

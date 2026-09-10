@@ -28,4 +28,17 @@ public class CopyrightExtensionsTests
         // Assert
         Assert.AreEqual($"Test Copyright (C) 2024{Environment.NewLine}With Multiple Lines", result);
     }
+
+    [TestMethod]
+    public void AssemblyCopyright_WhenAttributeIsMissing_ReturnsEmptyString()
+    {
+        var assembly = System.Reflection.Emit.AssemblyBuilder.DefineDynamicAssembly(
+            new AssemblyName("CopyrightWithoutAttribute"),
+            System.Reflection.Emit.AssemblyBuilderAccess.Run
+        );
+
+        var result = assembly.GetCopyright();
+
+        Assert.AreEqual(string.Empty, result);
+    }
 }
