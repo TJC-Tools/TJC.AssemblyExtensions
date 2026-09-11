@@ -57,6 +57,54 @@ public class ChangelogExtensionsTests
     }
 
     [TestMethod]
+    public void AssemblyChangelogIncludeUnreleasedSection_PreservesEmptySectionByDefault()
+    {
+        var contents = Assembly.GetExecutingAssembly().GetChangelog(
+            includeUnreleasedSection: true
+        );
+
+        StringAssert.Contains(contents, "## Unreleased");
+    }
+
+    [TestMethod]
+    public void AssemblyChangelogExcludeUnreleasedSectionWhenEmpty_RemovesEmptySection()
+    {
+        var contents = Assembly.GetExecutingAssembly().GetChangelog(
+            includeUnreleasedSection: true,
+            excludeUnreleasedSectionWhenEmpty: true
+        );
+
+        Assert.IsFalse(contents.Contains("## [Unreleased]"));
+    }
+
+    [TestMethod]
+    public void AssemblyChangelogExcludeUnreleasedSectionWhenEmpty_DoesNothingWhenSectionExcluded()
+    {
+        var contents = Assembly.GetExecutingAssembly().GetChangelog(
+            excludeUnreleasedSectionWhenEmpty: true
+        );
+
+        Assert.IsFalse(contents.Contains("## [Unreleased]"));
+    }
+
+    [TestMethod]
+    public void RemoveEmptyUnreleasedSection_WhenSectionHasContent_PreservesSection()
+    {
+        var method = typeof(ChangelogExtensions).GetMethod(
+            "RemoveEmptyUnreleasedSection",
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static
+        );
+
+        var result = method!.Invoke(
+            null,
+            ["## [Unreleased]\r\n\r\n### Added\r\n\r\n- New feature\r\n## [1.0.0]"]
+        );
+
+        StringAssert.Contains((string)result!, "## [Unreleased]");
+        StringAssert.Contains((string)result!, "- New feature");
+    }
+
+    [TestMethod]
     public void AssemblyChangelog_WhenResourceIsMissing_ReturnsEmptyString()
     {
         var result = typeof(object).Assembly.GetChangelog();

@@ -16,12 +16,14 @@ public static partial class ChangelogExtensions
     /// <param name="includeHeader"></param>
     /// <param name="includeUnreleasedSection"></param>
     /// <param name="includePaths"></param>
+    /// <param name="excludeUnreleasedSectionWhenEmpty"></param>
     /// <returns></returns>
     public static string GetChangelog(
         this Assembly assembly,
         bool includeHeader = false,
         bool includeUnreleasedSection = false,
-        bool includePaths = false
+        bool includePaths = false,
+        bool excludeUnreleasedSectionWhenEmpty = false
     )
     {
         // Read the embedded resource
@@ -40,6 +42,8 @@ public static partial class ChangelogExtensions
         // Unreleased section
         if (!includeUnreleasedSection)
             content = RemoveUnreleasedSection(content);
+        else if (excludeUnreleasedSectionWhenEmpty)
+            content = RemoveEmptyUnreleasedSection(content);
 
         // Version header paths
         if (includePaths)
@@ -85,6 +89,11 @@ public static partial class ChangelogExtensions
 
         // Remove the Unreleased section by using the Regex.Replace method
         return unreleasedPattern.Replace(changelogText, "");
+    }
+
+    private static string RemoveEmptyUnreleasedSection(string changelogText)
+    {
+        return EmptyUnreleasedRegex().Replace(changelogText, "");
     }
 
     #endregion
@@ -179,6 +188,9 @@ public static partial class ChangelogExtensions
 
     [GeneratedRegex(@"## \[Unreleased\](.*?)(?=\n## \[)", RegexOptions.Singleline)]
     private static partial Regex UnreleasedRegex();
+
+    [GeneratedRegex(@"## \[Unreleased\]\r?\n(?:[ \t]*\r?\n)*(?=## \[)")]
+    private static partial Regex EmptyUnreleasedRegex();
 
     [GeneratedRegex(@"## \[([^\]]+)\]")]
     private static partial Regex VersionHeaderToRemoveBracketsRegex();
