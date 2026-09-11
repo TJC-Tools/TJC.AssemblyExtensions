@@ -59,9 +59,7 @@ public class ChangelogExtensionsTests
     [TestMethod]
     public void AssemblyChangelogIncludeUnreleasedSection_PreservesEmptySectionByDefault()
     {
-        var contents = Assembly.GetExecutingAssembly().GetChangelog(
-            includeUnreleasedSection: true
-        );
+        var contents = Assembly.GetExecutingAssembly().GetChangelog(includeUnreleasedSection: true);
 
         StringAssert.Contains(contents, "## Unreleased");
     }
@@ -69,10 +67,9 @@ public class ChangelogExtensionsTests
     [TestMethod]
     public void AssemblyChangelogExcludeUnreleasedSectionWhenEmpty_RemovesEmptySection()
     {
-        var contents = Assembly.GetExecutingAssembly().GetChangelog(
-            includeUnreleasedSection: true,
-            excludeUnreleasedSectionWhenEmpty: true
-        );
+        var contents = Assembly
+            .GetExecutingAssembly()
+            .GetChangelog(includeUnreleasedSection: true, excludeUnreleasedSectionWhenEmpty: true);
 
         Assert.IsFalse(contents.Contains("## [Unreleased]"));
     }
@@ -80,9 +77,9 @@ public class ChangelogExtensionsTests
     [TestMethod]
     public void AssemblyChangelogExcludeUnreleasedSectionWhenEmpty_DoesNothingWhenSectionExcluded()
     {
-        var contents = Assembly.GetExecutingAssembly().GetChangelog(
-            excludeUnreleasedSectionWhenEmpty: true
-        );
+        var contents = Assembly
+            .GetExecutingAssembly()
+            .GetChangelog(excludeUnreleasedSectionWhenEmpty: true);
 
         Assert.IsFalse(contents.Contains("## [Unreleased]"));
     }
