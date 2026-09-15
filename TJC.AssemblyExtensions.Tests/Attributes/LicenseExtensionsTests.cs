@@ -4,7 +4,8 @@ namespace TJC.AssemblyExtensions.Tests.Attributes;
 public class LicenseExtensionsTests
 {
     private const string LicenseContents =
-        "Copyright (c) 2024 Tyler Carrol\r\n\r\n"
+        "The MIT License (MIT)\r\n\r\n"
+        + "Copyright (c) 2024 Tyler Carrol\r\n\r\n"
         + "Permission is hereby granted, free of charge, to any person obtaining a copy of this software "
         + "and associated documentation files (the “Software”), to deal in the Software without restriction, "
         + "including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, "
