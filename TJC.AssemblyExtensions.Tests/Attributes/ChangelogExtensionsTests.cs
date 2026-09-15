@@ -1,6 +1,5 @@
 namespace TJC.AssemblyExtensions.Tests.Attributes;
 
-
 public class ChangelogExtensionsTests
 {
     private const string ChangelogStart =
@@ -71,7 +70,7 @@ public class ChangelogExtensionsTests
             .GetExecutingAssembly()
             .GetChangelog(includeUnreleasedSection: true, excludeUnreleasedSectionWhenEmpty: true);
 
-        Assert.False(contents.Contains("## [Unreleased]"));
+        Assert.DoesNotContain("## [Unreleased]", contents);
     }
 
     [Fact]
@@ -81,7 +80,7 @@ public class ChangelogExtensionsTests
             .GetExecutingAssembly()
             .GetChangelog(excludeUnreleasedSectionWhenEmpty: true);
 
-        Assert.False(contents.Contains("## [Unreleased]"));
+        Assert.DoesNotContain("## [Unreleased]", contents);
     }
 
     [Fact]

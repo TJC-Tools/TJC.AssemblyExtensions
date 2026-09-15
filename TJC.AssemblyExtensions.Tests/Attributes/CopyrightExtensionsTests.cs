@@ -1,6 +1,5 @@
 namespace TJC.AssemblyExtensions.Tests.Attributes;
 
-
 public class CopyrightExtensionsTests
 {
     [Fact]
