@@ -13,7 +13,7 @@
     <Description>Test Description</Description>
     <Authors>Tyler Carrol</Authors>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
   <!-- INCLUDED FILES -->
   <ItemGroup>
