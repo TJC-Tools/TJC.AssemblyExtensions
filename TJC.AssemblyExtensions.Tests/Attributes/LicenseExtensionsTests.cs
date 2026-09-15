@@ -1,6 +1,5 @@
 namespace TJC.AssemblyExtensions.Tests.Attributes;
 
-
 public class LicenseExtensionsTests
 {
     private const string LicenseContents =
