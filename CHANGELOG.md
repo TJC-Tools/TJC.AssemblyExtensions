@@ -21,8 +21,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.8.7] - 2026-08-29
 
-## [0.8.6] - 2025-04-15
-
 ## [0.8.3] - 2024-11-15
 
 ### Added
@@ -84,8 +82,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.9.0]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.8.7...v0.9.0
 
 [0.8.7]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.8.6...v0.8.7
-
-[0.8.6]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.8.3...v0.8.6
 
 [0.8.3]: https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/v0.8.2...v0.8.3
 
