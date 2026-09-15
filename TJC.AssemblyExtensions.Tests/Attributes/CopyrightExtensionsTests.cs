@@ -1,9 +1,9 @@
 namespace TJC.AssemblyExtensions.Tests.Attributes;
 
-[TestClass]
+
 public class CopyrightExtensionsTests
 {
-    [TestMethod]
+    [Fact]
     public void AssemblyCopyright_DoNotReplaceSymbol()
     {
         // Arrange
@@ -13,10 +13,10 @@ public class CopyrightExtensionsTests
         var result = assembly.GetCopyright(replaceCopyrightSymbolWithC: false);
 
         // Assert
-        Assert.AreEqual($"Test Copyright © 2024{Environment.NewLine}With Multiple Lines", result);
+        Assert.Equal($"Test Copyright © 2024{Environment.NewLine}With Multiple Lines", result);
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyCopyright_ReplaceSymbolWithC()
     {
         // Arrange
@@ -26,10 +26,10 @@ public class CopyrightExtensionsTests
         var result = assembly.GetCopyright(replaceCopyrightSymbolWithC: true);
 
         // Assert
-        Assert.AreEqual($"Test Copyright (C) 2024{Environment.NewLine}With Multiple Lines", result);
+        Assert.Equal($"Test Copyright (C) 2024{Environment.NewLine}With Multiple Lines", result);
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyCopyright_WhenAttributeIsMissing_ReturnsEmptyString()
     {
         var assembly = System.Reflection.Emit.AssemblyBuilder.DefineDynamicAssembly(
@@ -39,6 +39,6 @@ public class CopyrightExtensionsTests
 
         var result = assembly.GetCopyright();
 
-        Assert.AreEqual(string.Empty, result);
+        Assert.Equal(string.Empty, result);
     }
 }

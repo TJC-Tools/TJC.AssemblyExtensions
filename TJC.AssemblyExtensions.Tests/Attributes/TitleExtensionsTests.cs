@@ -1,9 +1,9 @@
 namespace TJC.AssemblyExtensions.Tests.Attributes;
 
-[TestClass]
+
 public class TitleExtensionsTests
 {
-    [TestMethod]
+    [Fact]
     public void AssemblyTitle()
     {
         // Arrange
@@ -13,10 +13,10 @@ public class TitleExtensionsTests
         var result = assembly.GetTitle();
 
         // Assert
-        Assert.AreEqual("TJC.AssemblyExtensions.Tests", result);
+        Assert.Equal("TJC.AssemblyExtensions.Tests", result);
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyTitle_WhenAttributeIsMissing_ReturnsEmptyString()
     {
         var assembly = System.Reflection.Emit.AssemblyBuilder.DefineDynamicAssembly(
@@ -26,6 +26,6 @@ public class TitleExtensionsTests
 
         var result = assembly.GetTitle();
 
-        Assert.AreEqual(string.Empty, result);
+        Assert.Equal(string.Empty, result);
     }
 }

@@ -6,6 +6,7 @@
 ![Size](https://img.shields.io/github/repo-size/TJC-Tools/TJC.AssemblyExtensions)
 [![License](https://img.shields.io/github/license/TJC-Tools/TJC.AssemblyExtensions.svg)](LICENSE)
 
+[![tests](https://github.com/TJC-Tools/TJC.AssemblyExtensions/actions/workflows/ct-matrix.yml/badge.svg)](https://github.com/TJC-Tools/TJC.AssemblyExtensions/actions/workflows/ct-matrix.yml)
 [![codecov](https://codecov.io/gh/TJC-Tools/TJC.AssemblyExtensions/graph/badge.svg?token=5YBPHU66QE)](https://codecov.io/gh/TJC-Tools/TJC.AssemblyExtensions)
 
 ## Documentation

@@ -1,6 +1,6 @@
 namespace TJC.AssemblyExtensions.Tests.Attributes;
 
-[TestClass]
+
 public class ChangelogExtensionsTests
 {
     private const string ChangelogStart =
@@ -12,7 +12,7 @@ public class ChangelogExtensionsTests
     private const string ChangelogPath =
         "https://github.com/TJC-Tools/TJC.AssemblyExtensions/compare/";
 
-    [TestMethod]
+    [Fact]
     public void AssemblyChangelogStart()
     {
         // Arrange
@@ -25,10 +25,10 @@ public class ChangelogExtensionsTests
             || contents.StartsWith(ChangelogStart.Replace("\r", string.Empty));
 
         // Assert
-        Assert.IsTrue(result);
+        Assert.True(result);
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyChangelogIncludePath()
     {
         // Arrange
@@ -39,10 +39,10 @@ public class ChangelogExtensionsTests
         var result = contents.Contains(ChangelogPath);
 
         // Assert
-        Assert.IsTrue(result);
+        Assert.True(result);
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyChangelogExcludePath()
     {
         // Arrange
@@ -53,38 +53,38 @@ public class ChangelogExtensionsTests
         var result = contents.Contains(ChangelogPath);
 
         // Assert
-        Assert.IsFalse(result);
+        Assert.False(result);
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyChangelogIncludeUnreleasedSection_PreservesEmptySectionByDefault()
     {
         var contents = Assembly.GetExecutingAssembly().GetChangelog(includeUnreleasedSection: true);
 
-        StringAssert.Contains(contents, "## Unreleased");
+        Assert.Contains("## Unreleased", contents);
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyChangelogExcludeUnreleasedSectionWhenEmpty_RemovesEmptySection()
     {
         var contents = Assembly
             .GetExecutingAssembly()
             .GetChangelog(includeUnreleasedSection: true, excludeUnreleasedSectionWhenEmpty: true);
 
-        Assert.IsFalse(contents.Contains("## [Unreleased]"));
+        Assert.False(contents.Contains("## [Unreleased]"));
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyChangelogExcludeUnreleasedSectionWhenEmpty_DoesNothingWhenSectionExcluded()
     {
         var contents = Assembly
             .GetExecutingAssembly()
             .GetChangelog(excludeUnreleasedSectionWhenEmpty: true);
 
-        Assert.IsFalse(contents.Contains("## [Unreleased]"));
+        Assert.False(contents.Contains("## [Unreleased]"));
     }
 
-    [TestMethod]
+    [Fact]
     public void RemoveEmptyUnreleasedSection_WhenSectionHasContent_PreservesSection()
     {
         var method = typeof(ChangelogExtensions).GetMethod(
@@ -97,19 +97,19 @@ public class ChangelogExtensionsTests
             ["## [Unreleased]\r\n\r\n### Added\r\n\r\n- New feature\r\n## [1.0.0]"]
         );
 
-        StringAssert.Contains((string)result!, "## [Unreleased]");
-        StringAssert.Contains((string)result!, "- New feature");
+        Assert.Contains("## [Unreleased]", (string)result!);
+        Assert.Contains("- New feature", (string)result!);
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyChangelog_WhenResourceIsMissing_ReturnsEmptyString()
     {
         var result = typeof(object).Assembly.GetChangelog();
 
-        Assert.AreEqual(string.Empty, result);
+        Assert.Equal(string.Empty, result);
     }
 
-    [TestMethod]
+    [Fact]
     public void RemoveHeader_WhenMarkerIsMissing_ReturnsOriginalText()
     {
         var method = typeof(ChangelogExtensions).GetMethod(
@@ -119,10 +119,10 @@ public class ChangelogExtensionsTests
 
         var result = method!.Invoke(null, ["plain text"]);
 
-        Assert.AreEqual("plain text", result);
+        Assert.Equal("plain text", result);
     }
 
-    [TestMethod]
+    [Fact]
     public void MovePathsToHeaders_WhenHeaderHasNoPath_PreservesHeader()
     {
         var method = typeof(ChangelogExtensions).GetMethod(
@@ -132,7 +132,7 @@ public class ChangelogExtensionsTests
 
         var result = method!.Invoke(null, ["## [1.0.0]\r\nplain text"]);
 
-        StringAssert.Contains((string)result!, "## [1.0.0]");
-        StringAssert.Contains((string)result!, "plain text");
+        Assert.Contains("## [1.0.0]", (string)result!);
+        Assert.Contains("plain text", (string)result!);
     }
 }

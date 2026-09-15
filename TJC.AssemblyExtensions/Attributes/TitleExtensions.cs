@@ -1,4 +1,4 @@
-﻿namespace TJC.AssemblyExtensions.Attributes;
+namespace TJC.AssemblyExtensions.Attributes;
 
 /// <summary>
 /// Extensions for title attribute.

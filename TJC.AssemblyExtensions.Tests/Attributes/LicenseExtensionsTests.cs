@@ -1,6 +1,6 @@
 namespace TJC.AssemblyExtensions.Tests.Attributes;
 
-[TestClass]
+
 public class LicenseExtensionsTests
 {
     private const string LicenseContents =
@@ -17,7 +17,7 @@ public class LicenseExtensionsTests
         + "IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, "
         + "TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.";
 
-    [TestMethod]
+    [Fact]
     public void AssemblyLicense()
     {
         // Arrange
@@ -28,14 +28,14 @@ public class LicenseExtensionsTests
         var result = contents.StartsWith(LicenseContents);
 
         // Assert
-        Assert.IsTrue(result);
+        Assert.True(result);
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyLicense_WhenResourceIsMissing_ReturnsEmptyString()
     {
         var result = typeof(object).Assembly.GetLicense();
 
-        Assert.AreEqual(string.Empty, result);
+        Assert.Equal(string.Empty, result);
     }
 }

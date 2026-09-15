@@ -1,6 +1,6 @@
 namespace TJC.AssemblyExtensions.Tests.Attributes;
 
-[TestClass]
+
 public class ThirdPartyLicenseExtensionsTests
 {
     private const string ThirdPartyLicenseStart =
@@ -8,7 +8,7 @@ public class ThirdPartyLicenseExtensionsTests
         + "which are used under the terms of the following license(s).\r\n\r\n"
         + "===========================================================";
 
-    [TestMethod]
+    [Fact]
     public void AssemblyThirdPartyLicenses()
     {
         // Arrange
@@ -21,14 +21,14 @@ public class ThirdPartyLicenseExtensionsTests
             || contents.StartsWith(ThirdPartyLicenseStart.Replace("\r", string.Empty));
 
         // Assert
-        Assert.IsTrue(result);
+        Assert.True(result);
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyThirdPartyLicenses_WhenResourceIsMissing_ReturnsEmptyString()
     {
         var result = typeof(object).Assembly.GetThirdPartyLicenses();
 
-        Assert.AreEqual(string.Empty, result);
+        Assert.Equal(string.Empty, result);
     }
 }

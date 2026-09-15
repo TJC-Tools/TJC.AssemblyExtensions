@@ -1,4 +1,4 @@
-﻿using TJC.StringExtensions.Lines;
+using TJC.StringExtensions.Lines;
 
 namespace TJC.AssemblyExtensions.Attributes;
 

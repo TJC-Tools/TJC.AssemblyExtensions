@@ -1,9 +1,9 @@
 namespace TJC.AssemblyExtensions.Tests.Attributes;
 
-[TestClass]
+
 public class DescriptionExtensionsTests
 {
-    [TestMethod]
+    [Fact]
     public void AssemblyDescription()
     {
         // Arrange
@@ -13,10 +13,10 @@ public class DescriptionExtensionsTests
         var result = assembly.GetDescription();
 
         // Assert
-        Assert.AreEqual("Test Description", result);
+        Assert.Equal("Test Description", result);
     }
 
-    [TestMethod]
+    [Fact]
     public void AssemblyDescription_WhenAttributeIsMissing_ReturnsEmptyString()
     {
         var assembly = System.Reflection.Emit.AssemblyBuilder.DefineDynamicAssembly(
@@ -26,6 +26,6 @@ public class DescriptionExtensionsTests
 
         var result = assembly.GetDescription();
 
-        Assert.AreEqual(string.Empty, result);
+        Assert.Equal(string.Empty, result);
     }
 }
